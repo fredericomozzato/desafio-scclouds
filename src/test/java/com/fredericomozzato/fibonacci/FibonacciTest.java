@@ -1,5 +1,6 @@
 package com.fredericomozzato.fibonacci;
 
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -41,5 +42,15 @@ class FibonacciTest {
     void recursiveFibonacciTest(int index, int expected) {
         int result = Fibonacci.recursiveFibonacci(index);
         assertEquals(expected, result);
+    }
+
+    @Test
+    void badInputLinearFibonacciExceptionTest() {
+        assertThrows(IllegalArgumentException.class, () -> Fibonacci.linearFibonacci(-1));
+    }
+
+    @Test
+    void badInputRecursiveFibonacciExceptionTest() {
+        assertThrows(IllegalArgumentException.class, () -> Fibonacci.recursiveFibonacci(-1));
     }
 }

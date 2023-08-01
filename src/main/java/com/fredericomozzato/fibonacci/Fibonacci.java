@@ -24,4 +24,14 @@ public class Fibonacci {
         return seq[n];
     }
 
+
+    public static int recursiveFibonacci(int n) {
+
+        Validator.validate(n, 0);
+        if (n == 0 || n == 1) {
+            return n;
+        }
+        return recursiveFibonacci(n - 1) + recursiveFibonacci(n - 2);
+    }
+
 }

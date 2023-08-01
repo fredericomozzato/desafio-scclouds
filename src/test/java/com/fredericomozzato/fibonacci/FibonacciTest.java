@@ -1,6 +1,5 @@
 package com.fredericomozzato.fibonacci;
 
-import com.sun.jdi.connect.Connector;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -35,6 +34,13 @@ class FibonacciTest {
     @MethodSource("fibonacciParameters")
     void linearFibonacciTest(int index, int expected) {
         int result = Fibonacci.linearFibonacci(index);
+        assertEquals(result, expected);
+    }
+
+    @ParameterizedTest
+    @MethodSource("fibonacciParameters")
+    void recursiveFibonacciTest(int index, int expected) {
+        int result = Fibonacci.recursiveFibonacci(index);
         assertEquals(result, expected);
     }
 }

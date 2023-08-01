@@ -20,8 +20,28 @@ public class Prime {
     }
 
 
+    public static List<Integer> recursivePrime(int n) {
+        Validator.validate(n, 1);
+        List<Integer> primes = new ArrayList<>();
+
+        getPrimesRecursively(n, primes);
+        return primes;
+    }
+
+
+    private static void getPrimesRecursively(int n, List<Integer> primes) {
+        if (n == 1) { return; }
+
+        if (isPrime(n)) {
+            primes.add(0, n);
+        }
+
+        getPrimesRecursively(--n, primes);
+    }
+
+
     private static boolean isPrime(int n) {
-        for (int i = 2; i < n - 1; i++) {
+        for (int i = 2; i < n; i++) {
             if (n % i == 0) {
                 return false;
             }

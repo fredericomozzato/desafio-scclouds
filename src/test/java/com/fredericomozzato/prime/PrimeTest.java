@@ -24,7 +24,14 @@ class PrimeTest {
     @MethodSource("primeParameters")
     void linearPrimeTest(int n, List<Integer> expected) {
         List<Integer> result = Prime.linearPrime(n);
-        assertEquals(result, expected);
+        assertEquals(expected, result);
+    }
+
+    @ParameterizedTest
+    @MethodSource("primeParameters")
+    void recursivePrimeTest(int n, List<Integer> expected) {
+        List<Integer> result = Prime.recursivePrime(n);
+        assertEquals(expected, result);
     }
 
 }

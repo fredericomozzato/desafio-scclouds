@@ -11,7 +11,6 @@ import static org.junit.jupiter.api.Assertions.*;
 class FibonacciTest {
 
     /**
-     *
      * índices e valores dos 10 primeiros números da sequência de Fibonacci
      */
     private static Stream<Arguments> fibonacciParameters() {
@@ -34,13 +33,13 @@ class FibonacciTest {
     @MethodSource("fibonacciParameters")
     void linearFibonacciTest(int index, int expected) {
         int result = Fibonacci.linearFibonacci(index);
-        assertEquals(result, expected);
+        assertEquals(expected, result);
     }
 
     @ParameterizedTest
     @MethodSource("fibonacciParameters")
     void recursiveFibonacciTest(int index, int expected) {
         int result = Fibonacci.recursiveFibonacci(index);
-        assertEquals(result, expected);
+        assertEquals(expected, result);
     }
 }

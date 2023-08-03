@@ -1,7 +1,7 @@
 # Desafio SC Clouds
 ### Autor - Frederico Mozzato
 
-Projeto desenvolvido como parte do desafio técnico para o processo de seleção da empresa SC Clouds. Foi desenvolvido com **Java 17** e **Gradle** como ferramenta de build.
+Projeto desenvolvido como parte do desafio técnico para o processo de seleção da empresa SC Clouds. Foi desenvolvido com **Java 17** e **Gradle**.
 
 O projeto contempla as seguintes questões:
 

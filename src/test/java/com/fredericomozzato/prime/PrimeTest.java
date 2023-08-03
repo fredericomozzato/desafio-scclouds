@@ -1,6 +1,5 @@
 package com.fredericomozzato.prime;
 
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -20,6 +19,13 @@ class PrimeTest {
         );
     }
 
+    private static Stream<Arguments> primeBadParameters() {
+        return Stream.of(
+                Arguments.of(0),
+                Arguments.of(-1)
+        );
+    }
+
 
     @ParameterizedTest
     @MethodSource("primeParameters")
@@ -35,16 +41,16 @@ class PrimeTest {
         assertEquals(expected, result);
     }
 
-    @Test
-    void badInputLinearPrimeExceptionTest() {
-        assertThrows(IllegalArgumentException.class, () -> Prime.linearPrime(-1));
-        assertThrows(IllegalArgumentException.class, () -> Prime.linearPrime(0));
+    @ParameterizedTest
+    @MethodSource("primeBadParameters")
+    void badInputLinearPrimeExceptionTest(int badInput) {
+        assertThrows(IllegalArgumentException.class, () -> Prime.linearPrime(badInput));
     }
 
-    @Test
-    void badInputRecursivePrimeExceptionTest() {
-        assertThrows(IllegalArgumentException.class, () -> Prime.recursivePrime(-1));
-        assertThrows(IllegalArgumentException.class, () -> Prime.recursivePrime(0));
+    @ParameterizedTest
+    @MethodSource("primeBadParameters")
+    void badInputRecursivePrimeExceptionTest(int badInput) {
+        assertThrows(IllegalArgumentException.class, () -> Prime.recursivePrime(badInput));
     }
 
 }
